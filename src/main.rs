@@ -2,7 +2,7 @@ use lrc::Lyrics;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    // 1. get songonse from YesPlayMusic Web API
+    // 1. get song data from YesPlayMusic Web API
     let song = reqwest::get("http://127.0.0.1:27232/player")
         .await?
         .json::<serde_json::Value>()
