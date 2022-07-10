@@ -74,3 +74,6 @@ interval = 0.2
 - 没有用缓存来优化
 - 没有使用GitHub Actions来进行自动化测试与构建
 - 没有发布包到各个平台，目前只能使用Rust Cargo来build release
+
+# 许可证 License
+MIT
