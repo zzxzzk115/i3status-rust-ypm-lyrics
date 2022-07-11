@@ -2,7 +2,7 @@
 
 ![bar](bar.png)
 
-![GitHub](https://img.shields.io/github/license/zzxzzk115/i3status-rust-ypm-lyrics)![Language](https://img.shields.io/badge/language-rust-yellow)
+![GitHub](https://img.shields.io/github/license/zzxzzk115/i3status-rust-ypm-lyrics) ![Language](https://img.shields.io/badge/language-rust-yellow)
 
 在i3status-rust中显示YesPlayMusic的歌词
 

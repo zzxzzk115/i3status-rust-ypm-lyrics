@@ -1,4 +1,5 @@
 use lrc::Lyrics;
+use regex::Regex;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -19,10 +20,12 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .await?;
 
     // 4. get lyrics data string
-    let lyrics_data = &lyrics["lrc"]["lyric"].as_str();
-    let lyrics_obj = Lyrics::from_str(lyrics_data.unwrap()).unwrap();
+    let lyrics_data = lyrics["lrc"]["lyric"].as_str().unwrap();
+    let re = Regex::new(r".(\d{2})\d{1}]").unwrap();
+    let fixed_lyrics_data = re.replace_all(lyrics_data, ".$1]");
+    let lyrics_obj = Lyrics::from_str(fixed_lyrics_data).unwrap();
 
-    // 5. get TimeTag and get a matched lyric
+    // 5. get a matched lyric
     if let Some(index) = lyrics_obj.find_timed_line_index(song_progress) {
         let timed_lines = lyrics_obj.get_timed_lines();
         let lyric = &timed_lines[index];
